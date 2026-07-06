@@ -1,0 +1,30 @@
+<Solution>
+  <Folder Name="/OrderService/" />
+  <Folder Name="/OrderService/Api/">
+    <Project Path="OrderService/Api/OrderService.Api.csproj" />
+  </Folder>
+  <Folder Name="/OrderService/Application/">
+    <Project Path="OrderService/Application/OrderService.Application.csproj" />
+  </Folder>
+  <Folder Name="/OrderService/Domain/">
+    <Project Path="OrderService/Domain/OrderService.Domain.csproj" />
+  </Folder>
+  <Folder Name="/OrderService/Infrastructure/">
+    <Project Path="OrderService/Infrastructure/OrderService.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/ProductService/" />
+  <Folder Name="/ProductService/Api/">
+    <Project Path="ProductService/Api/ProductService.Api.csproj" />
+  </Folder>
+  <Folder Name="/ProductService/Application/">
+    <Project Path="ProductService/Application/ProductService.Application.csproj" />
+  </Folder>
+  <Folder Name="/ProductService/Domain/">
+    <Project Path="ProductService/Domain/ProductService.Domain.csproj" />
+  </Folder>
+  <Folder Name="/ProductService/Infrastructure/">
+    <Project Path="ProductService/Infrastructure/ProductService.Infrastructure.csproj" />
+  </Folder>
+  <Project Path="AppHost/AppHost.csproj" />
+  <Project Path="ServiceDefaults/ServiceDefaults.csproj" />
+</Solution>
