@@ -18,4 +18,16 @@ public class Order
             Quantity = quantity,
             OrderDate = DateTime.UtcNow
         };
+
+    public static Order Rehydrate(Guid id, string customerName, Guid productId, int quantity, DateTime orderDate)
+    {
+        return new Order
+        {
+            Id = id,
+            CustomerName = customerName,
+            ProductId = productId,
+            Quantity = quantity,
+            OrderDate = orderDate
+        };
+    }
 }

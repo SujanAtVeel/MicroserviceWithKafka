@@ -1,4 +1,4 @@
-namespace ProductService.Application.Ports;
+namespace ProductService.Domain.Ports;
 
 public interface IUnitOfWork
 {

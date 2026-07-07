@@ -7,6 +7,6 @@ public static class OrderToDomainMapper
 {
     public static Order ToDomain(OrderEntity entity)
     {
-        return Order.Create(entity.CustomerName, entity.ProductId, entity.Quantity);
+        return Order.Rehydrate(entity.Id, entity.CustomerName, entity.ProductId, entity.Quantity, entity.OrderDate);
     }
 }

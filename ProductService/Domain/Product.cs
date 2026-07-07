@@ -19,6 +19,17 @@ public class Product
         };
     }
 
+    public static Product Rehydrate( Guid id, string name, decimal price, int quantity)
+    {
+        return new Product
+        {
+            Id = id,
+            Name = name,
+            Price = price,
+            Quantity = quantity
+        };
+    }
+
     public void DecreaseQuantity(int amount)
     {
         if (amount > Quantity)

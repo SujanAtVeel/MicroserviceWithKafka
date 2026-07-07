@@ -19,12 +19,6 @@ public class OrderRepository : IOrderRepository
         await _dbContext.Orders.AddAsync(OrderToEntityMapper.ToEntity(order), ct);
     }
 
-    public async Task<IEnumerable<Order>> GetAllAsync(CancellationToken ct)
-    {
-        var orders = await _dbContext.Orders.ToListAsync(ct);
-        return orders.Select(OrderToDomainMapper.ToDomain);
-    }
-
     public async Task<Order?> GetByIdAsync(Guid orderId, CancellationToken ct)
     {
         var order = await _dbContext.Orders.FirstOrDefaultAsync(x => x.Id == orderId, ct);

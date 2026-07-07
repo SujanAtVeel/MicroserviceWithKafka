@@ -23,8 +23,10 @@ public static class DependencyInjection
         services.AddSingleton<OrderEventPublisher>();
         services.AddHostedService<OutboxPublisherBackgroundService>();
 
-        var section = configuration.GetSection("Kafka");
-        services.Configure<KafkaSettings>(section);
+        services.Configure<KafkaSettings>(options =>
+        {
+            options.BootstrapServers = configuration.GetConnectionString("kafka") ?? "localhost:9092";
+        });
 
         // DbContext
         services.AddDbContext<OrderDbContext>(options =>
