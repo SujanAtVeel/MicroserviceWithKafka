@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using OrderService.Domain.Ports;
+using OrderService.Infrastructure.Messaging;
 using OrderService.Infrastructure.Persistence;
 using OrderService.Infrastructure.Persistence.Repositories;
 using OrderService.Infrastructure.Publishers;
@@ -16,7 +17,14 @@ public static class DependencyInjection
     {
         // Repository
         services.AddScoped<IOrderRepository, OrderRepository>();
-        services.AddScoped<IOrderEventPublisher, OrderEventPublisher>();
+        services.AddScoped<IOutboxWriter, OutboxWriter>();
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+        services.AddSingleton<OrderEventPublisher>();
+        services.AddHostedService<OutboxPublisherBackgroundService>();
+
+        var section = configuration.GetSection("Kafka");
+        services.Configure<KafkaSettings>(section);
 
         // DbContext
         services.AddDbContext<OrderDbContext>(options =>
